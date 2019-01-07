@@ -9,6 +9,14 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#caad9f">
     <style>
+        * {
+            -webkit-touch-callout:none;
+            -webkit-user-select:none;
+            -khtml-user-select:none;
+            -moz-user-select:none;
+            -ms-user-select:none;
+            user-select:none;
+        }
         @font-face {
             font-family: "Seto";
             src: url("assets/font/Seto.eot"); /* IE9 */
@@ -35,6 +43,9 @@
             padding: 10px 16px; 
             margin: 10px;
             border-radius: 30px;
+        }
+        .btn.small {
+            font-size: 14px;
         }
         .btn:hover {
             cursor: pointer;
@@ -67,7 +78,7 @@
                 -moz-transform: rotate(360deg);
             }
         }
-        .output-container {
+        .container {
             text-align: center;
             width: 75%;
             max-width: 600px;
@@ -77,20 +88,44 @@
             border-radius: 20px;
             box-shadow: 0px 5px 10px #00000020;
         }
-        .output-container .title .meta {
+        .title .meta {
             color: #515151;
             font-size: 28px;
             margin: 10px 0;
         }
-        .output-container .title .str {
+        .title .str {
             color: #515151;
-            font-size: 48px;
             margin: 20px 0;
         }
-        .output-container .output-image {
+        .title .input.str {
+            font-size: 42px;
+            border: 1px solid #dddddd;
+            background: #f6f6f6;
+            padding: 14px;
+        }
+        .title .output.str {
+            font-size: 48px;
+        }
+        .output-image {
             margin: 20px 0;
             border: 1px solid #515151;
             padding: 20px 0;
+        }
+        .aaa {
+            background-color: #515151;
+            color: #ffffff;
+            height: 40px;
+            line-height: 40px;
+            font-size: 24px;
+            margin: 20px -40px -60px;
+            padding: 20px 40px;
+            border-radius: 0 0 20px 20px;
+        }
+        .aaa:hover {
+            cursor: pointer;
+            background-color: #303030;
+            color: #ffffff;
+            font-size: 26px;
         }
     </style>
 </head>
@@ -100,10 +135,23 @@
         <div class="content-loading" v-show="loading">
             <img class="loading-img" src="assets/image/oreo.png" alt="">
         </div>
-        <div class="output-container" v-show="!loading">
+        <div class="container" v-show="!loading">
+            <div class="title">
+                <div class="meta">我想要：</div>
+                <div class="input str">{{str}}</div>
+            </div>
+            <div class="control">
+                <div @click="downloadImage" class="btn small">+奥</div>
+                <div class="btn small">+与</div>
+                <div class="btn small">+利</div>
+                <div class="btn small">-1</div>
+            </div>
+            <div @click="downloadImage" class="aaa">生成</div>
+        </div>
+        <div class="container" v-show="!loading">
             <div class="title">
                 <div class="meta">这是你的</div>
-                <div class="str">{{str}}</div>
+                <div class="output str">{{str}}</div>
             </div>
             <div class="output-image">
                 <canvas width="240px" height="500px" id="oreo_canvas"></canvas>
