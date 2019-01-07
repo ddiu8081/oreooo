@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <title>OREOOO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <style>
+        @font-face {
+            font-family: "Seto";
+            src: url("assets/font/Seto.eot"); /* IE9 */
+            src: url("assets/font/Seto.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+            
+            url("assets/font/Seto.woff") format("woff"), /* chrome、firefox */
+            url("assets/font/Seto.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+            
+            url("assets/font/Seto.svg#Seto") format("svg"); /* iOS 4.1- */
+            font-style: normal;
+            font-weight: normal;
+        }
+        body {
+            font-family: "Seto";
+            padding: 0;
+            margin: 0;
+            color: #515151;
+            background-color: #caad9f;
+        }
+        a {
+            text-decoration: none;
+        }
+        .btn {
+            display: inline-block;
+            border: 2px solid #515151;
+            font-size: 20px;
+            padding: 10px 16px; 
+            margin: 10px;
+            border-radius: 30px;
+        }
+        .btn:hover {
+            cursor: pointer;
+            background-color: #515151;
+            color: #ffffff;
+        }
+        .content-loading {
+            display: flex;
+            width: 100%;
+            text-align: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .loading-img {
+            width: 30%;
+            max-width: 200px;
+            max-height: 200px;
+            margin: 0 auto;
+            animation: rotate 6s infinite linear;
+        }
+        @keyframes rotate{
+            0%{
+                transform: rotate(0deg);
+                -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg);
+                -moz-transform: rotate(360deg);
+            }
+        }
+        .output-container {
+            text-align: center;
+            width: 75%;
+            max-width: 600px;
+            background-color: #ffffff;
+            margin: 40px auto;
+            padding: 60px 40px;
+            border-radius: 20px;
+            box-shadow: 0px 5px 10px #00000020;
+        }
+        .output-container .title .meta {
+            color: #515151;
+            font-size: 28px;
+            margin: 10px 0;
+        }
+        .output-container .title .str {
+            color: #515151;
+            font-size: 48px;
+            margin: 20px 0;
+        }
+        .output-container .output-image {
+            margin: 20px 0;
+            border: 1px solid #515151;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="content-loading" v-show="loading">
+            <img class="loading-img" src="assets/image/oreo.png" alt="">
+        </div>
+        <div class="output-container" v-show="!loading">
+            <div class="title">
+                <div class="meta">这是你的</div>
+                <div class="str">{{str}}</div>
+            </div>
+            <div class="output-image">
+                <canvas width="240px" height="500px" id="oreo_canvas"></canvas>
+            </div>
+            <a :href="imgUrl" class="btn">保存图片</a>
+            <div class="btn">返回</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                loading: true,
+                str: "奥利利与奥奥",
+                imgUrl: ""
+            },
+            created: function () {
+                var that = this;
+                var sources = {
+                    O: "assets/image/O.png",
+                    R: "assets/image/R.png",
+                    Ob: "assets/image/Ob.png"
+                };
+                this.loadImages(sources, function (images) {
+                    setTimeout(() => {
+                        that.loading = false;
+                    }, 200)
+                    var canvas = document.getElementById('oreo_canvas');
+                    canvas.height = 350;
+                    // width = canvas.offsetWidth;
+                    // height = canvas.offsetHeight;
+                    // //  设置宽高
+                    // canvas.width = width;
+                    // canvas.height = height;
+                    var ctx = canvas.getContext('2d');
+                    //ctx.drawImage(image, dx, dy, dWidth, dHeight);
+                    // ctx.drawImage(images.R, 0, 200, 294, 200);
+                    // ctx.drawImage(images.Ob, 0, 176, 300, 200);
+                    // ctx.drawImage(images.R, 0, 148, 294, 200);
+                    // ctx.drawImage(images.R, 0, 124, 294, 200);
+                    ctx.drawImage(images.Ob, 0, 190, 240, 160);
+                    ctx.drawImage(images.Ob, 0, 166, 240, 160);
+                    ctx.drawImage(images.R, 5, 48, 230, 160);
+                    ctx.drawImage(images.R, 5, 24, 230, 160);
+                    ctx.drawImage(images.O, 0, 0, 240, 160);
+
+                    var imgUrl = canvas.toDataURL("image/png");
+                    // window.location.href = imgUrl;
+                });
+            },
+            methods: {
+                loadImages: function (sources, callback) {
+                    var images = {};
+                    var index = 0;
+                    var attCount = Object.getOwnPropertyNames(sources).length;
+                    for (imgItem in sources) {
+                        images[imgItem] = new Image();
+                        images[imgItem].onload = function () {
+                            index++;
+                            if (index == attCount) {
+                                callback(images);
+                            }
+                        }
+                        images[imgItem].src = sources[imgItem];
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
