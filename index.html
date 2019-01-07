@@ -28,9 +28,6 @@
             color: #515151;
             background-color: #caad9f;
         }
-        a {
-            text-decoration: none;
-        }
         .btn {
             display: inline-block;
             border: 2px solid #515151;
@@ -111,7 +108,7 @@
             <div class="output-image">
                 <canvas width="240px" height="500px" id="oreo_canvas"></canvas>
             </div>
-            <a :href="imgUrl" class="btn">保存图片</a>
+            <div @click="downloadImage" class="btn">保存图片</div>
             <div class="btn">返回</div>
         </div>
     </div>
@@ -173,6 +170,17 @@
                         }
                         images[imgItem].src = sources[imgItem];
                     }
+                },
+                downloadImage: function () {
+                    var a = document.createElement('a');
+                    a.href = this.imgUrl;
+                    a.download = this.str + '.png';
+
+                    a.click();
+
+                    // var event = document.createEvent('MouseEvents');
+                    // event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    // oA.dispatchEvent(event);
                 }
             }
         })
