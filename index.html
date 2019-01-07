@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#caad9f">
     <style>
         @font-face {
             font-family: "Seto";
@@ -153,7 +154,7 @@
                     ctx.drawImage(images.R, 5, 24, 230, 160);
                     ctx.drawImage(images.O, 0, 0, 240, 160);
 
-                    var imgUrl = canvas.toDataURL("image/png");
+                    that.imgUrl = canvas.toDataURL("image/png");
                     // window.location.href = imgUrl;
                 });
             },
