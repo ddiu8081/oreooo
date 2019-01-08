@@ -69,7 +69,7 @@ const messages = {
 }
 
 // Set Language
-var lang;
+var lang = "";
 if (window.localStorage.getItem('lang')) {
     lang = window.localStorage.getItem('lang');
 } else {
@@ -77,7 +77,7 @@ if (window.localStorage.getItem('lang')) {
     lang = "zh_CN";
 }
 
-const i18n = new VueI18n({
+var i18n = new VueI18n({
     locale: lang, // set locale
     messages, // set locale messages
 })
