@@ -70,8 +70,8 @@ const messages = {
 
 // Set Language
 var lang = "";
-if (window.localStorage.getItem('lang')) {
-    lang = window.localStorage.getItem('lang');
+if (localStorage.getItem('lang')) {
+    lang = localStorage.getItem('lang');
 } else {
     localStorage.lang = "zh_CN";
     lang = "zh_CN";
