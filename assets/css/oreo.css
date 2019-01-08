@@ -1,0 +1,162 @@
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@font-face {
+    font-family: "Seto";
+    src: url("../font/Seto.eot");
+    /* IE9 */
+    src: url("../font/Seto.eot?#iefix") format("embedded-opentype"),
+        /* IE6-IE8 */
+
+        url("../font/Seto.woff") format("woff"),
+        /* chrome、firefox */
+        url("../font/Seto.ttf") format("truetype"),
+        /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+
+        url("../font/Seto.svg#Seto") format("svg");
+    /* iOS 4.1- */
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    font-family: "Seto";
+    padding: 0;
+    margin: 0;
+    color: #515151;
+    background-color: #caad9f;
+}
+
+.btn {
+    display: inline-block;
+    border: 2px solid #515151;
+    font-size: 20px;
+    padding: 10px 16px;
+    margin: 10px;
+    border-radius: 30px;
+}
+
+.btn.small {
+    font-size: 14px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #515151;
+    color: #ffffff;
+}
+
+.content-loading {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.loading-img {
+    width: 30%;
+    max-width: 200px;
+    max-height: 200px;
+    margin: 0 auto;
+    animation: rotate 6s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+    }
+}
+
+.container {
+    text-align: center;
+    width: 75%;
+    max-width: 600px;
+    background-color: #ffffff;
+    margin: 40px auto;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px #00000020;
+}
+
+.index-btn {
+    background-color: #515151;
+    color: #ffffff;
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    margin: 20px -40px -60px;
+    padding: 20px 40px;
+    border-radius: 0 0 20px 20px;
+}
+
+.index-btn:hover {
+    cursor: pointer;
+    background-color: #303030;
+    color: #ffffff;
+    font-size: 26px;
+}
+
+.bounce-enter-active {
+    animation: bounce-in .5s;
+}
+
+.bounce-leave-active {
+    animation: bounce-in .5s reverse;
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.title .meta {
+    color: #515151;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.title .str {
+    color: #515151;
+    margin: 20px 0;
+}
+
+.title .input.str {
+    font-size: 42px;
+    border: 1px solid #dddddd;
+    background: #f6f6f6;
+    padding: 14px;
+    min-height: 42px;
+}
+
+.title .output.str {
+    font-size: 48px;
+}
+
+.output-image {
+    margin: 20px 0;
+    padding: 20px 0;
+}

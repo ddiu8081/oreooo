@@ -8,231 +8,43 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#caad9f">
-    <style>
-        * {
-            -webkit-touch-callout:none;
-            -webkit-user-select:none;
-            -khtml-user-select:none;
-            -moz-user-select:none;
-            -ms-user-select:none;
-            user-select:none;
-        }
-        @font-face {
-            font-family: "Seto";
-            src: url("assets/font/Seto.eot"); /* IE9 */
-            src: url("assets/font/Seto.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
-            
-            url("assets/font/Seto.woff") format("woff"), /* chrome、firefox */
-            url("assets/font/Seto.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
-            
-            url("assets/font/Seto.svg#Seto") format("svg"); /* iOS 4.1- */
-            font-style: normal;
-            font-weight: normal;
-        }
-        body {
-            font-family: "Seto";
-            padding: 0;
-            margin: 0;
-            color: #515151;
-            background-color: #caad9f;
-        }
-        .btn {
-            display: inline-block;
-            border: 2px solid #515151;
-            font-size: 20px;
-            padding: 10px 16px; 
-            margin: 10px;
-            border-radius: 30px;
-        }
-        .btn.small {
-            font-size: 14px;
-        }
-        .btn:hover {
-            cursor: pointer;
-            background-color: #515151;
-            color: #ffffff;
-        }
-        .content-loading {
-            display: flex;
-            width: 100%;
-            text-align: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .loading-img {
-            width: 30%;
-            max-width: 200px;
-            max-height: 200px;
-            margin: 0 auto;
-            animation: rotate 6s infinite linear;
-        }
-        @keyframes rotate{
-            0%{
-                transform: rotate(0deg);
-                -webkit-transform: rotate(0deg);
-                -moz-transform: rotate(0deg);
-            }
-            100%{
-                transform: rotate(360deg);
-                -webkit-transform: rotate(360deg);
-                -moz-transform: rotate(360deg);
-            }
-        }
-        .container {
-            text-align: center;
-            width: 75%;
-            max-width: 600px;
-            background-color: #ffffff;
-            margin: 40px auto;
-            padding: 60px 40px;
-            border-radius: 20px;
-            box-shadow: 0px 5px 10px #00000020;
-        }
-        .title .meta {
-            color: #515151;
-            font-size: 28px;
-            margin: 10px 0;
-        }
-        .title .str {
-            color: #515151;
-            margin: 20px 0;
-        }
-        .title .input.str {
-            font-size: 42px;
-            border: 1px solid #dddddd;
-            background: #f6f6f6;
-            padding: 14px;
-        }
-        .title .output.str {
-            font-size: 48px;
-        }
-        .output-image {
-            margin: 20px 0;
-            border: 1px solid #515151;
-            padding: 20px 0;
-        }
-        .aaa {
-            background-color: #515151;
-            color: #ffffff;
-            height: 40px;
-            line-height: 40px;
-            font-size: 24px;
-            margin: 20px -40px -60px;
-            padding: 20px 40px;
-            border-radius: 0 0 20px 20px;
-        }
-        .aaa:hover {
-            cursor: pointer;
-            background-color: #303030;
-            color: #ffffff;
-            font-size: 26px;
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/oreo.css">
 </head>
 
 <body>
     <div id="app">
-        <div class="content-loading" v-show="loading">
-            <img class="loading-img" src="assets/image/oreo.png" alt="">
-        </div>
-        <div class="container" v-show="!loading">
+        <transition name="bounce">
+            <div class="content-loading" v-show="loading">
+                <img class="loading-img" src="assets/image/oreo.png" alt="">
+            </div>
+        </transition>
+        <div class="container" v-show="!loading && !output">
             <div class="title">
                 <div class="meta">我想要：</div>
-                <div class="input str">{{str}}</div>
+                <div class="input str">{{oreoStr}}</div>
             </div>
             <div class="control">
-                <div @click="downloadImage" class="btn small">+奥</div>
-                <div class="btn small">+与</div>
-                <div class="btn small">+利</div>
-                <div class="btn small">-1</div>
+                <div @click="strAdd('o')" class="btn small">+奥</div>
+                <div @click="strAdd('r')" class="btn small">+利</div>
+                <div @click="strAdd('-')" class="btn small">+与</div>
+                <div @click="strAdd('-1')" class="btn small">-1</div>
             </div>
-            <div @click="downloadImage" class="aaa">生成</div>
+            <div @click="generateImage" class="index-btn">生成</div>
         </div>
-        <div class="container" v-show="!loading">
+        <div class="container" v-show="!loading && output">
             <div class="title">
                 <div class="meta">这是你的</div>
-                <div class="output str">{{str}}</div>
+                <div class="output str">{{oreoStr}}</div>
             </div>
             <div class="output-image">
-                <canvas width="240px" height="500px" id="oreo_canvas"></canvas>
+                <canvas width="240px" height="500px" ref="oreo_canvas" id="oreo_canvas"></canvas>
             </div>
             <div @click="downloadImage" class="btn">保存图片</div>
-            <div class="btn">返回</div>
+            <div @click="backToInput" class="btn">返回</div>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <script type="text/javascript">
-        var app = new Vue({
-            el: '#app',
-            data: {
-                loading: true,
-                str: "奥利利与奥奥",
-                imgUrl: ""
-            },
-            created: function () {
-                var that = this;
-                var sources = {
-                    O: "assets/image/O.png",
-                    R: "assets/image/R.png",
-                    Ob: "assets/image/Ob.png"
-                };
-                this.loadImages(sources, function (images) {
-                    setTimeout(() => {
-                        that.loading = false;
-                    }, 200)
-                    var canvas = document.getElementById('oreo_canvas');
-                    canvas.height = 350;
-                    // width = canvas.offsetWidth;
-                    // height = canvas.offsetHeight;
-                    // //  设置宽高
-                    // canvas.width = width;
-                    // canvas.height = height;
-                    var ctx = canvas.getContext('2d');
-                    //ctx.drawImage(image, dx, dy, dWidth, dHeight);
-                    // ctx.drawImage(images.R, 0, 200, 294, 200);
-                    // ctx.drawImage(images.Ob, 0, 176, 300, 200);
-                    // ctx.drawImage(images.R, 0, 148, 294, 200);
-                    // ctx.drawImage(images.R, 0, 124, 294, 200);
-                    ctx.drawImage(images.Ob, 0, 190, 240, 160);
-                    ctx.drawImage(images.Ob, 0, 166, 240, 160);
-                    ctx.drawImage(images.R, 5, 48, 230, 160);
-                    ctx.drawImage(images.R, 5, 24, 230, 160);
-                    ctx.drawImage(images.O, 0, 0, 240, 160);
-
-                    that.imgUrl = canvas.toDataURL("image/png");
-                    // window.location.href = imgUrl;
-                });
-            },
-            methods: {
-                loadImages: function (sources, callback) {
-                    var images = {};
-                    var index = 0;
-                    var attCount = Object.getOwnPropertyNames(sources).length;
-                    for (imgItem in sources) {
-                        images[imgItem] = new Image();
-                        images[imgItem].onload = function () {
-                            index++;
-                            if (index == attCount) {
-                                callback(images);
-                            }
-                        }
-                        images[imgItem].src = sources[imgItem];
-                    }
-                },
-                downloadImage: function () {
-                    var a = document.createElement('a');
-                    a.href = this.imgUrl;
-                    a.download = this.str + '.png';
-
-                    a.click();
-
-                    // var event = document.createEvent('MouseEvents');
-                    // event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
-                    // oA.dispatchEvent(event);
-                }
-            }
-        })
-    </script>
+    <script src="assets/js/oreo.js"></script>
 
 </body>
 
