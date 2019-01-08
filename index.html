@@ -21,8 +21,12 @@
         <div class="container" v-show="!loading && !output">
             <div class="title">
                 <div class="meta" v-t="'input.meta'"></div>
-                <div class="input str" v-show="oreoStr">{{oreoStr}}</div>
-                <div class="input str placeholder" v-show="!oreoStr" v-t="'input.placeholder'"></div>
+                <div v-show="oreoStr">
+                    <div class="input str" v-show="oreoStr">{{oreoStr}}</div>
+                </div>
+                <div v-show="!oreoStr">
+                    <div class="input str placeholder" v-t="'input.placeholder'"></div>
+                </div>
             </div>
             <div class="control">
                 <div @click="strAdd('o')" class="btn small" v-t="'input.btn.o'"></div>
