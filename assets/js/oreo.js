@@ -61,7 +61,7 @@ var app = new Vue({
                     break;
                 case '-1':
                     if (this.oreoArr.length > 0) {
-                        oreoArr.pop();
+                        this.oreoArr.pop();
                         this.oreoStr = this.oreoStr.substr(0, this.oreoStr.length - 1);
                     }
                     break;
