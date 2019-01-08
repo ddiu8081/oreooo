@@ -33,6 +33,16 @@ body {
     background-color: #caad9f;
 }
 
+a {
+    text-decoration: none;
+    color: #515151;
+    margin: 0 4px;
+}
+
+a:hover {
+    color: #303030;
+}
+
 .footer {
     text-align: center;
     font-size: 18px;
@@ -41,6 +51,7 @@ body {
 .footer ul {
     margin: 0;
     padding: 0;
+    margin: 10px 0;
 }
 
 .footer ul li {
@@ -55,6 +66,10 @@ body {
 
 .footer li:not(:first-child):before {
     content: " / ";
+}
+
+.footer .meta {
+    margin: 10px 0;
 }
 
 .btn {

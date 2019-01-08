@@ -86,7 +86,7 @@ var app = new Vue({
     el: '#app',
     i18n,
     data: {
-        lang: messages,
+        languages: messages,
         output: false,
         loading: true,
         oreoArr: [],
