@@ -1,5 +1,5 @@
 var images = {}; // Cache Images
-const messages = {
+var messages = {
     zh_CN: {
         name: "中",
         basic: {
