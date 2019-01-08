@@ -1,26 +1,5 @@
 var images = {}; // Cache Images
 var messages = {
-    zh_CN: {
-        basic: {
-            o: "奥",
-            r: "利",
-            and: "与"
-        },
-        input: {
-            meta: "我想要：",
-            generate: "生成",
-            btn: {
-                o: "+奥",
-                r: "+利",
-                and: "+与"
-            },
-        },
-        output: {
-            meta: "這是你的",
-            save: "保存图片",
-            back: "返回"
-        }
-    },
     en: {
         basic: {
             o: "O | o",
@@ -29,6 +8,7 @@ var messages = {
         },
         input: {
             meta: "I'd like:",
+            placeholder: "Oreo...",
             generate: "Generate",
             btn: {
                 o: "O",
@@ -42,6 +22,28 @@ var messages = {
             back: "Back"
         }
     },
+    zh_CN: {
+        basic: {
+            o: "奥",
+            r: "利",
+            and: "与"
+        },
+        input: {
+            meta: "我想要：",
+            placeholder: "奥利奥...",
+            generate: "生成",
+            btn: {
+                o: "+奥",
+                r: "+利",
+                and: "+与"
+            },
+        },
+        output: {
+            meta: "這是你的",
+            save: "保存图片",
+            back: "返回"
+        }
+    },
     ja: {
         basic: {
             o: "オ",
@@ -50,6 +52,7 @@ var messages = {
         },
         input: {
             meta: "私は...したい",
+            placeholder: "オレオ...",
             generate: "実行",
             btn: {
                 o: "+オ",
@@ -98,7 +101,6 @@ var app = new Vue({
             var str = "";
             for (let index = 0; index < this.oreoArr.length; index++) {
                 const item = this.oreoArr[index];
-                console.log(index,item)
                 switch (item) {
                     case "O":
                     case "Ob":
@@ -152,7 +154,6 @@ var app = new Vue({
             }
         },
         strAdd: function (str) {
-            console.log(str);
             switch (str) {
                 case 'o':
                     // this.oreoStr += this.$i18n.t("basic.o");
@@ -180,52 +181,52 @@ var app = new Vue({
             }
         },
         generateImage: function () {
-            var that = this;
-            this.loading = true;
-            this.output = true;
-            var oreoArr = this.oreoArr;
-            var drawArr = [];
+            if (this.oreoArr.length > 0) {
+                var that = this;
+                this.loading = true;
+                this.output = true;
+                var oreoArr = this.oreoArr;
+                var drawArr = [];
 
-            // Delete '-' at the end
-            if (oreoArr[oreoArr.length - 1] == "-") {
-                oreoArr.pop();
-                this.oreoStr = this.oreoStr.substr(0, this.oreoStr.length - 1);
-            }
-            console.log(oreoArr);
-
-            // Canvas height calculation
-            var height = 0;
-            for (let index = 0; index < oreoArr.length; index++) {
-                const thisLayer = oreoArr[index];
-                if (thisLayer != "-") {
-                    var drawItem = {
-                        image: images[thisLayer],
-                        x: thisLayer == "R" ? 5 : 0,
-                        y: height,
-                        width: thisLayer == "R" ? 230 : 240,
-                        height: 160
-                    };
-                    drawArr.splice(0, 0, drawItem);
-                    console.log(drawItem);
-                    height += 24;
-                } else {
-                    height += 72;
+                // Delete '-' at the end
+                if (oreoArr[oreoArr.length - 1] == "-") {
+                    oreoArr.pop();
+                    this.oreoStr = this.oreoStr.substr(0, this.oreoStr.length - 1);
                 }
+
+                // Canvas height calculation
+                var height = 0;
+                for (let index = 0; index < oreoArr.length; index++) {
+                    const thisLayer = oreoArr[index];
+                    if (thisLayer != "-") {
+                        var drawItem = {
+                            image: images[thisLayer],
+                            x: thisLayer == "R" ? 5 : 0,
+                            y: height,
+                            width: thisLayer == "R" ? 230 : 240,
+                            height: 160
+                        };
+                        drawArr.splice(0, 0, drawItem);
+                        height += 24;
+                    } else {
+                        height += 72;
+                    }
+                }
+                height += 160 - 24; // Add the last image's height.
+
+                var canvas = this.$refs.oreo_canvas;
+                canvas.height = height;
+                var ctx = canvas.getContext("2d");
+
+                drawArr.forEach(item => {
+                    ctx.drawImage(item.image, item.x, item.y, item.width, item.height);
+                });
+
+                this.imgUrl = canvas.toDataURL("image/png");
+                setTimeout(() => {
+                    that.loading = false;
+                }, 1000)
             }
-            height += 160 - 24; // Add the last image's height.
-
-            var canvas = this.$refs.oreo_canvas;
-            canvas.height = height;
-            var ctx = canvas.getContext("2d");
-
-            drawArr.forEach(item => {
-                ctx.drawImage(item.image, item.x, item.y, item.width, item.height);
-            });
-
-            this.imgUrl = canvas.toDataURL("image/png");
-            setTimeout(() => {
-                that.loading = false;
-            }, 1000)
         },
         downloadImage: function () {
             var a = document.createElement("a");

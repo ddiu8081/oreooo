@@ -192,6 +192,10 @@ a:hover {
     min-height: 42px;
 }
 
+.title .placeholder {
+    color: #cccccc;
+}
+
 .title .output.str {
     font-size: 48px;
 }
