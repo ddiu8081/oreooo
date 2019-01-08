@@ -162,19 +162,16 @@ var app = new Vue({
                     }
                     break;
                 case 'r':
-                    // this.oreoStr += this.$i18n.t("basic.r");
                     this.oreoArr.push("R");
                     break;
                 case '-':
                     if (this.oreoArr.length > 0 && this.oreoArr[this.oreoArr.length - 1] != '-') {
-                        // this.oreoStr += this.$i18n.t("basic.and");
                         this.oreoArr.push("-");
                     }
                     break;
                 case '-1':
                     if (this.oreoArr.length > 0) {
                         this.oreoArr.pop();
-                        // this.oreoStr = this.oreoStr.substr(0, this.oreoStr.length - 1);
                     }
                     break;
                 default:

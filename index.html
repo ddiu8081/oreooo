@@ -20,27 +20,27 @@
         </transition>
         <div class="container" v-show="!loading && !output">
             <div class="title">
-                <div class="meta">{{ $t("input.meta") }}</div>
+                <div class="meta" v-t="'input.meta'"></div>
                 <div class="input str">{{oreoStr}}</div>
             </div>
             <div class="control">
-                <div @click="strAdd('o')" class="btn small">{{ $t("input.btn.o") }}</div>
-                <div @click="strAdd('r')" class="btn small">{{ $t("input.btn.r") }}</div>
-                <div @click="strAdd('-')" class="btn small">{{ $t("input.btn.and") }}</div>
+                <div @click="strAdd('o')" class="btn small" v-t="'input.btn.o'"></div>
+                <div @click="strAdd('r')" class="btn small" v-t="'input.btn.r'"></div>
+                <div @click="strAdd('-')" class="btn small" v-t="'input.btn.and'"></div>
                 <div @click="strAdd('-1')" class="btn small">-1</div>
             </div>
-            <div @click="generateImage" class="index-btn">{{ $t("input.generate") }}</div>
+            <div @click="generateImage" class="index-btn" v-t="'input.generate'"></div>
         </div>
         <div class="container" v-show="!loading && output">
             <div class="title">
-                <div class="meta">{{ $t("output.meta") }}</div>
+                <div class="meta" v-t="'output.meta'"></div>
                 <div class="output str">{{oreoStr}}</div>
             </div>
             <div class="output-image">
                 <canvas width="240px" height="500px" ref="oreo_canvas" id="oreo_canvas"></canvas>
             </div>
-            <div @click="downloadImage" class="btn">{{ $t("output.save") }}</div>
-            <div @click="backToInput" class="btn">{{ $t("output.back") }}</div>
+            <div @click="downloadImage" class="btn" v-t="'output.save'"></div>
+            <div @click="backToInput" class="btn" v-t="'output.back'"></div>
         </div>
         <footer class="footer" v-show="!loading && !output">
             <ul class="lang">
@@ -48,8 +48,8 @@
             </ul>
         </footer>
     </div>
-    <script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-i18n/dist/vue-i18n.js"></script>
     <script src="assets/js/oreo.js"></script>
 
 </body>
