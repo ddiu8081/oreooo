@@ -44,7 +44,7 @@
         </div>
         <footer class="footer" v-show="!loading && !output">
             <ul class="lang">
-                <li @click="changeLang(key)" v-for="(item, key) in languages" :key="item.name">{{item.name}}</li>
+                <li @click="changeLang(value)" v-for="(value, key) in languages" :key="value">{{key}}</li>
             </ul>
             <div class="meta">
                 <a href="https://ddiu.site">Diu</a> 

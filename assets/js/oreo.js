@@ -1,7 +1,6 @@
 var images = {}; // Cache Images
 var messages = {
     zh_CN: {
-        name: "中",
         basic: {
             o: "奥",
             r: "利",
@@ -23,7 +22,6 @@ var messages = {
         }
     },
     en: {
-        name: "En",
         basic: {
             o: "O | o",
             r: "Re | re",
@@ -45,7 +43,6 @@ var messages = {
         }
     },
     ja: {
-        name: "日",
         basic: {
             o: "オ",
             r: "レ",
@@ -86,7 +83,11 @@ var app = new Vue({
     el: '#app',
     i18n,
     data: {
-        languages: messages,
+        languages: {
+            "中": "zh_CN",
+            "En": "en",
+            "日": "ja"
+        },
         output: false,
         loading: true,
         oreoArr: [],
