@@ -33,6 +33,30 @@ body {
     background-color: #caad9f;
 }
 
+.footer {
+    text-align: center;
+    font-size: 18px;
+}
+
+.footer ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer ul li {
+    list-style-type: none;
+    display: inline;
+}
+
+.footer ul li:hover {
+    cursor: pointer;
+    color: #303030;
+}
+
+.footer li:not(:first-child):before {
+    content: " / ";
+}
+
 .btn {
     display: inline-block;
     border: 2px solid #515151;
@@ -43,7 +67,7 @@ body {
 }
 
 .btn.small {
-    font-size: 14px;
+    font-size: 18px;
 }
 
 .btn:hover {
