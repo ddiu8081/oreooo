@@ -59,6 +59,12 @@ var app = new Vue({
                         this.oreoArr.push("-");
                     }
                     break;
+                case '-1':
+                    if (this.oreoArr.length > 0) {
+                        oreoArr.pop();
+                        this.oreoStr = this.oreoStr.substr(0, this.oreoStr.length - 1);
+                    }
+                    break;
                 default:
                     break;
             }
