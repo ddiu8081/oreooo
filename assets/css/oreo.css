@@ -190,6 +190,7 @@ a:hover {
     background: #f6f6f6;
     padding: 14px;
     min-height: 42px;
+    word-break: break-all;
 }
 
 .title .placeholder {
@@ -198,6 +199,7 @@ a:hover {
 
 .title .output.str {
     font-size: 48px;
+    word-break: break-all;
 }
 
 .output-image {
