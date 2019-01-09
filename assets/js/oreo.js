@@ -232,7 +232,7 @@ var app = new Vue({
             var a = document.createElement("a");
             a.href = this.imgUrl;
             a.download = this.oreoStr + ".png";
-            a.click();
+            a.dispatchEvent(new MouseEvent('click', {}))
         },
         backToInput: function () {
             this.output = false;
