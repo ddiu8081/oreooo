@@ -201,13 +201,13 @@ var app = new Vue({
                     if (thisLayer != "-") {
                         var drawItem = {
                             image: images[thisLayer],
-                            x: thisLayer == "R" ? 5 : 0,
+                            x: thisLayer == "R" ? 10 : 0,
                             y: height,
-                            width: thisLayer == "R" ? 230 : 240,
-                            height: 160
+                            width: thisLayer == "R" ? 220 : 240,
+                            height: thisLayer == "R" ? 155 : 160
                         };
                         drawArr.splice(0, 0, drawItem);
-                        height += 24;
+                        height += "R" ? 24 : 24;
                     } else {
                         height += 72;
                     }
