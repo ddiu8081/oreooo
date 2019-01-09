@@ -110,7 +110,7 @@ var app = new Vue({
                         str += this.$i18n.tc("basic.r", index + 1);
                         break;
                     case "-":
-                        str += this.$i18n.t("basic.and", index);
+                        str += this.$i18n.t("basic.and");
                         break;
                     default:
                         break;
