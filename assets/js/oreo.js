@@ -23,7 +23,7 @@ var messages = {
             back: "Back"
         }
     },
-    zh_CN: {
+    zh_cn: {
         basic: {
             o: "奥",
             r: "利",
@@ -73,11 +73,15 @@ var messages = {
 
 // Set Language
 var lang = "";
-if (localStorage.getItem('lang')) {
+
+if (location.hash.length > 1) {
+    lang = location.hash.substring(1);
+    localStorage.lang =  lang;
+} else if (localStorage.getItem('lang')) {
     lang = localStorage.getItem('lang');
 } else {
-    localStorage.lang = "zh_CN";
-    lang = "zh_CN";
+    localStorage.lang = "zh_cn";
+    lang = "zh_cn";
 }
 
 var i18n = new VueI18n({
@@ -90,7 +94,7 @@ var app = new Vue({
     i18n,
     data: {
         languages: {
-            "中": "zh_CN",
+            "中": "zh_cn",
             "En": "en",
             "日": "ja"
         },
