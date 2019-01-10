@@ -28,6 +28,7 @@ var messages = {
             r: "利",
             and: "与"
         },
+        tooltip: "键盘快捷键: <br>o/r : 输入奥/利<br>-/空格 : 输入与<br>回车 : 生成<br>退格 : 返回",
         input: {
             meta: "我想要：",
             placeholder: "奥利奥...",
@@ -151,6 +152,37 @@ var app = new Vue({
                     }
                 }
                 cacheImages[imgItem].src = sources[imgItem];
+            }
+        },
+        keyEvent: function (ev) {
+            console.log(ev.keyCode);
+            if (!this.loading && !this.output) {
+                // input Page
+                switch (ev.keyCode) {
+                    case 79:
+                        this.strAdd('o');
+                        break;
+                    case 82:
+                        this.strAdd('r');
+                        break;
+                    case 8:
+                        this.strAdd('-1');
+                        break;
+                    case 32:
+                    case 189:
+                        this.strAdd('-');
+                        break;
+                    case 13:
+                        this.generateImage();
+                        break;
+                    default:
+                        break;
+                }
+            } else if (!this.loading && this.output) {
+                // output Page
+                if (ev.keyCode == 8) {
+                    this.backToInput();
+                }
             }
         },
         strAdd: function (str) {

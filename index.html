@@ -12,13 +12,16 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="app" tabindex="-1" @keyup="keyEvent($event)">
         <transition name="bounce">
             <div class="content-loading" v-show="loading">
                 <img class="loading-img" src="assets/image/oreo.png" alt="">
             </div>
         </transition>
         <div class="container" v-show="!loading && !output">
+            <div v-show="$t('tooltip') != 'tooltip'" class="icon tooltip" src="assets/image/tip.png" alt="tip">
+            <span class="tooltiptext" v-html="$t('tooltip')"></span>
+            </div>
             <div class="title">
                 <div class="meta" v-t="'input.meta'"></div>
                 <div v-show="oreoStr">
@@ -52,7 +55,7 @@
                 <li @click="changeLang(value)" v-for="(value, key) in languages" :key="value">{{key}}</li>
             </ul>
             <div class="meta">
-                <a href="https://ddiu.site">Diu</a> 
+                <a href="https://ddiu.site">Diu</a>
                 <a href="https://github.com/ddiu8081/oreooo">Github</a>
             </div>
         </footer>

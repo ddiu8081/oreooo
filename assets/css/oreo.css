@@ -43,6 +43,10 @@ a:hover {
     color: #303030;
 }
 
+#app {
+    outline: none;
+}
+
 .footer {
     text-align: center;
     font-size: 18px;
@@ -123,6 +127,7 @@ a:hover {
 }
 
 .container {
+    position: relative;
     text-align: center;
     width: 75%;
     max-width: 600px;
@@ -131,6 +136,50 @@ a:hover {
     padding: 60px 40px;
     border-radius: 20px;
     box-shadow: 0px 5px 10px #00000020;
+}
+
+.container .tooltip {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    right: 24px;
+    top: 24px;
+    opacity: 0.2;
+    transition: all 0.2s;
+    background-image: url('../image/tip.png');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+}
+
+.container .tooltip:hover {
+    opacity: 0.6;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    font-size: 14px;
+    background-color: #51515166;
+    color: #fff;
+    text-align: left;
+    padding: 5px 8px;
+    border-radius: 6px;
+
+    /* 定位 */
+    position: absolute;
+    z-index: 1;
+    top: 36px;
+    right: 0px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+@media only screen and (max-width: 500px) {
+    .container .tooltip {
+        display: none;
+    }
 }
 
 .index-btn {
