@@ -6,6 +6,7 @@ var messages = {
             r: "Re | re",
             and: "-"
         },
+        tooltip: "Keyboard shortcuts: <br>o/r : Input 'O' or 'RE'<br>-/Space : Input Space<br>Enter : Generate<br>Backspace : Back",
         input: {
             meta: "I'd like:",
             placeholder: "Oreo...",
@@ -51,6 +52,7 @@ var messages = {
             r: "レ",
             and: "と"
         },
+        tooltip: "キーボード・ショートカット: <br>o/r/-/Space : 編集する<br>Enter : 実行<br>Backspace : 元に戻す",
         input: {
             meta: "私は...したい",
             placeholder: "オレオ...",
