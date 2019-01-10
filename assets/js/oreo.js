@@ -129,6 +129,9 @@ var app = new Vue({
             R: "assets/image/R.png",
             Ob: "assets/image/Ob.png"
         };
+        // Set background color
+        var bgColorArr = ['#caad9f', '#f0c869', '#6abce0', '#9ac4bd', '#fad0c4', '#9ec6cd'];
+        document.body.style.backgroundColor = bgColorArr[Math.floor((Math.random()*bgColorArr.length))];
         this.loadImages(sources, function () {
             setTimeout(() => {
                 that.loading = false;
