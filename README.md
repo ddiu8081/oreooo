@@ -1,6 +1,10 @@
 # OREOOO!
 
-这是你的奥利奥利奥吗？
+# 🤣
+# 😂
+# That's sooooo dope.
+
+# Is this your oreooo？
 
 ![ScreenShot](assets/screenshot.png)
 
@@ -12,7 +16,7 @@
 
 
 
-## Keyboard shortcuts / 键盘快捷键
+## Keyboard shortcuts
 
 | Key       | Description                        |
 | --------- | ---------------------------------- |
