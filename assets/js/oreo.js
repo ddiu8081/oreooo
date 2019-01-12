@@ -44,7 +44,7 @@ var messages = {
         output: {
             meta: "這是你的",
             save: "保存图片",
-            show: "show图片",
+            show: "查看图片",
             back: "返回"
         }
     },
@@ -284,7 +284,6 @@ var app = new Vue({
             a.dispatchEvent(new MouseEvent('click', {}))
         },
         showImage: function () {
-            var a = document.createElement("a");
             window.open(this.imgUrl);
         },
         backToInput: function () {
