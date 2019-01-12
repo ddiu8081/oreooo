@@ -20,6 +20,7 @@ var messages = {
         output: {
             meta: "Here's your",
             save: "Save Image",
+            show: "Show Image",
             back: "Back"
         }
     },
@@ -43,6 +44,7 @@ var messages = {
         output: {
             meta: "這是你的",
             save: "保存图片",
+            show: "show图片",
             back: "返回"
         }
     },
@@ -66,6 +68,7 @@ var messages = {
         output: {
             meta: "結果",
             save: "画像を保存する",
+            show: "写真を表示",
             back: "元に戻す"
         }
     }
@@ -128,6 +131,11 @@ var app = new Vue({
     },
     created: function () {
         var that = this;
+        if (this.isIOS()) {
+            document.getElementById("download_").style.display = "none";
+        } else {
+            document.getElementById("show_").style.display = "none";
+        }
         var sources = {
             O: "assets/image/O.png",
             R: "assets/image/R.png",
@@ -275,11 +283,20 @@ var app = new Vue({
             a.download = this.oreoStr + ".png";
             a.dispatchEvent(new MouseEvent('click', {}))
         },
+        showImage: function () {
+            var a = document.createElement("a");
+            window.open(this.imgUrl);
+        },
         backToInput: function () {
             this.output = false;
             this.oreoStr = "";
             this.oreoArr = [];
             this.imgUrl = "";
+        },
+        isIOS: function(){
+            var u = navigator.userAgent;
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+            return isiOS;
         }
     }
 })
