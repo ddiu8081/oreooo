@@ -1,5 +1,6 @@
 # OREOOO!
 
+Is this your Oreooo?
 这是你的奥利奥利奥吗？
 
 ![ScreenShot](assets/screenshot.png)
@@ -12,12 +13,20 @@
 
 
 
-## Keyboard shortcuts / 键盘快捷键
+## Keyboard shortcuts
 
 | Key       | Description                        |
 | --------- | ---------------------------------- |
-| o / r     | Input 'O' or 'RE' / 输入"奥"或"利" |
-| - / Space | Input space / 输入"与"             |
-| Enter     | Generate / 生成图片                |
-| Backspace | Back / 返回                        |
+| o / r     | Input 'O' or 'RE' |
+| - / Space | Input space             |
+| Enter     | Generate                
+| Backspace | Back                        |
+
+## Contributing a translation
+
+The text in Oreooo is in Chinese by default. You can translate it in your language. Just edit your language pack in `assets/js/oreo.js` and  `pull requests` to me. Thanks!
+
+## License
+
+MIT
 
