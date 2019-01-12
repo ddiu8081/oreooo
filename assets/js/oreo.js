@@ -160,7 +160,9 @@ var app = new Vue({
                     index++;
                     if (index == attCount) {
                         images = cacheImages;
-                        callback();
+                        if (typeof callback === "function") {
+                            callback();
+                        }
                     }
                 }
                 cacheImages[imgItem].src = sources[imgItem];

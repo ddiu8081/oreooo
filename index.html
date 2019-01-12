@@ -28,7 +28,7 @@
             </div>
         </transition>
         <div class="container" v-show="!loading && !output">
-            <div v-show="$t('tooltip') != 'tooltip'" class="icon tooltip" src="assets/image/tip.png" alt="tip">
+            <div class="icon tooltip" src="assets/image/tip.png" alt="tip">
             <span class="tooltiptext" v-html="$t('tooltip')"></span>
             </div>
             <div class="title">
@@ -56,7 +56,7 @@
             <div class="output-image">
                 <canvas width="240px" height="500px" ref="oreo_canvas" id="oreo_canvas"></canvas>
             </div>
-            <div v-if="isIOS" @click="showImage" class="btn" v-t="'output.show'"></div>
+            <div v-if="isIOS()" @click="showImage" class="btn" v-t="'output.show'"></div>
             <div v-else @click="downloadImage" class="btn" v-t="'output.save'"></div>
             <div @click="backToInput" class="btn" v-t="'output.back'"></div>
         </div>
