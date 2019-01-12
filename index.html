@@ -56,7 +56,8 @@
             <div class="output-image">
                 <canvas width="240px" height="500px" ref="oreo_canvas" id="oreo_canvas"></canvas>
             </div>
-            <div @click="downloadImage" class="btn" v-t="'output.save'"></div>
+            <div id='download_' @click="downloadImage" class="btn" v-t="'output.save'"></div>
+            <div id='show_' @click="showImage" class="btn" v-t="'output.show'"></div>
             <div @click="backToInput" class="btn" v-t="'output.back'"></div>
         </div>
         <footer class="footer" v-show="!loading && !output">
