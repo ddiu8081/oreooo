@@ -131,11 +131,6 @@ var app = new Vue({
     },
     created: function () {
         var that = this;
-        if (this.isIOS()) {
-            document.getElementById("download_").style.display = "none";
-        } else {
-            document.getElementById("show_").style.display = "none";
-        }
         var sources = {
             O: "assets/image/O.png",
             R: "assets/image/R.png",
