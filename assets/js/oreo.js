@@ -71,6 +71,30 @@ var messages = {
             show: "写真を表示",
             back: "元に戻す"
         }
+    },
+    de_de: {
+        basic: {
+            o: "O | o",
+            r: "Re | re",
+            and: "-"
+        },
+        tooltip: "Tastaturkürzel: <br>o/r :<br>'O' oder 'RE'<br>-/Leerzeichen :<br>Leerzeichen<br>Enter :<br>Generieren<br>Rücktaste :<br>Zurück",
+        input: {
+            meta: "Ich möchte ein:",
+            placeholder: "Oreo...",
+            generate: "Generieren",
+            btn: {
+                o: "O",
+                r: "R",
+                and: "und"
+            },
+        },
+        output: {
+            meta: "Hier ist dein",
+            save: "Bild sichern",
+            show: "Bild anzeigen",
+            back: "Zurück"
+        }
     }
 }
 
@@ -99,7 +123,8 @@ var app = new Vue({
         languages: {
             "中": "zh_cn",
             "En": "en",
-            "日": "ja"
+            "日": "ja",
+            "De": "de_de"
         },
         output: false,
         loading: true,
