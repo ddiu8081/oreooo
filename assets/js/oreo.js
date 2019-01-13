@@ -138,7 +138,7 @@ var app = new Vue({
         };
         // Set background color
         var bgColorArr = ['#caad9f', '#f0c869', '#6abce0', '#9ac4bd', '#fad0c4', '#9ec6cd'];
-        document.body.style.backgroundColor = bgColorArr[Math.floor((Math.random()*bgColorArr.length))];
+        document.body.style.backgroundColor = bgColorArr[Math.floor((Math.random() * bgColorArr.length))];
         this.loadImages(sources, function () {
             setTimeout(() => {
                 that.loading = false;
@@ -202,7 +202,6 @@ var app = new Vue({
         strAdd: function (str) {
             switch (str) {
                 case 'o':
-                    // this.oreoStr += this.$i18n.t("basic.o");
                     if (this.oreoArr.length == 0) {
                         this.oreoArr.push("O");
                     } else {
@@ -226,6 +225,29 @@ var app = new Vue({
                     break;
             }
         },
+        getRandom: function () {
+            for (let i = 0; i < Math.floor(Math.random() * 8) + 1; i++) {
+                var random = Math.random() * 5;
+                var str = '';
+                if (random < 1) {
+                    str = '-';
+                } else if (random < 3) {
+                    str = 'o';
+                } else {
+                    str = 'r';
+                }
+                for (let j = 0; j < Math.floor(Math.random() * 4) + 1; j++) {
+                    console.log(i,str,j)
+                    this.strAdd(str);
+                }
+            }
+            if (this.oreoArr[this.oreoArr.length - 1] == "-") {
+                this.oreoArr.pop();
+            }
+            if (this.oreoArr.length == 0) {
+                this.getRandom();
+            }
+        },
         generateImage: function () {
             if (this.oreoArr.length > 0) {
                 var that = this;
@@ -237,7 +259,6 @@ var app = new Vue({
                 // Delete '-' at the end
                 if (oreoArr[oreoArr.length - 1] == "-") {
                     oreoArr.pop();
-                    this.oreoStr = this.oreoStr.substr(0, this.oreoStr.length - 1);
                 }
 
                 // Canvas height calculation
@@ -285,7 +306,6 @@ var app = new Vue({
         },
         backToInput: function () {
             this.output = false;
-            this.oreoStr = "";
             this.oreoArr = [];
             this.imgUrl = "";
         },

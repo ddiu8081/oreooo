@@ -28,16 +28,21 @@
             </div>
         </transition>
         <div class="container" v-show="!loading && !output">
-            <div class="icon tooltip" src="assets/image/tip.png" alt="tip">
-            <span class="tooltiptext" v-html="$t('tooltip')"></span>
+            <div class="icon tooltip">
+                <span class="tooltiptext" v-html="$t('tooltip')"></span>
             </div>
             <div class="title">
                 <div class="meta" v-t="'input.meta'"></div>
                 <div v-show="oreoStr">
-                    <div class="input str" v-show="oreoStr">{{oreoStr}}</div>
+                    <div class="input str" v-show="oreoStr">
+                        <span>{{oreoStr}}</span>
+                    </div>
                 </div>
                 <div v-show="!oreoStr">
-                    <div class="input str placeholder" v-t="'input.placeholder'"></div>
+                    <div class="input str placeholder">
+                        <span v-t="'input.placeholder'"></span>
+                        <img class="icon" @click="getRandom()" src="assets/image/random.png" />
+                    </div>
                 </div>
             </div>
             <div class="control">

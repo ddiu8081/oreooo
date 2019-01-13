@@ -31,7 +31,7 @@ body {
     margin: 0;
     color: #515151;
     background-color: #cccccc;
-    transition: all 2s;
+    transition: background-color 2s;
 }
 
 a {
@@ -146,7 +146,7 @@ a:hover {
     right: 24px;
     top: 24px;
     opacity: 0.2;
-    transition: all 0.2s;
+    transition: opacity 0.2s;
     background-image: url('../image/tip.png');
     background-size: 24px 24px;
     background-repeat: no-repeat;
@@ -235,12 +235,32 @@ a:hover {
 }
 
 .title .input.str {
+    display: flex;
+    align-items: center;
     font-size: 42px;
-    border: 1px solid #dddddd;
+    border: 1px solid #eeeeee;
     background: #f6f6f6;
     padding: 14px;
     min-height: 42px;
     word-break: break-all;
+    border-radius: 20px;
+}
+
+.title .input span {
+    flex: 1
+}
+
+.title .input .icon {
+    width: 26px;
+    height: 26px;
+    margin: 0 10px;
+    opacity: 0.4;
+    transition: opacity 0.2s;
+}
+
+.title .input .icon:hover {
+    cursor: pointer;
+    opacity: 1;
 }
 
 .title .placeholder {
