@@ -323,7 +323,7 @@ var app = new Vue({
         downloadImage: function () {
             var a = document.createElement("a");
             a.href = this.imgUrl;
-            a.download = this.oreoStr + ".png";
+            a.download = "oreo.png";
             a.dispatchEvent(new MouseEvent('click', {}))
         },
         showImage: function () {
