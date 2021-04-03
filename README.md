@@ -9,7 +9,7 @@ Is this your Oreooo?
 
 [Demo](https://ddiu8081.github.io/oreooo/)
 
-[Blog](https://blog.ljl.li/oreooo/)
+[Blog](https://notes.ljl.li/oreooo/)
 
 
 
