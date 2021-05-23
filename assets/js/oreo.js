@@ -42,7 +42,7 @@ var messages = {
             },
         },
         output: {
-            meta: "這是你的",
+            meta: "这是你的",
             save: "保存图片",
             show: "查看图片",
             back: "返回"
