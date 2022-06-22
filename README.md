@@ -1,5 +1,7 @@
 # OREOOO!
 
+> Refactoring ([#13](https://github.com/ddiu8081/oreooo/issues/13))
+
 Is this your Oreooo?
 这是你的奥利奥利奥吗？
 
