@@ -8,7 +8,6 @@ export const formattedOreoStr = (keyList: OreoKey[]) => {
   }
   const dict = {
     o: '奥',
-    ob: '奥',
     r: '利',
     '-': '与',
   }

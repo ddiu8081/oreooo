@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import O from '../assets/images/O.png'
-import Ob from '../assets/images/Ob.png'
-import R from '../assets/images/R.png'
+import image_of from '../assets/images/of.png'
+import image_o from '../assets/images/o.png'
+import image_r from '../assets/images/r.png'
 
 const props = defineProps<{ input: string[] }>()
 let oreoCanvas = $ref<HTMLCanvasElement | null>(null)
@@ -29,15 +29,15 @@ const loadImage = async (src: string): Promise<HTMLImageElement> => {
 }
 
 const loadAllImages = async () => {
-  const o = await loadImage(O)
-  const ob = await loadImage(Ob)
-  const r = await loadImage(R)
-  return { o, ob, r }
+  const of = await loadImage(image_of)
+  const o = await loadImage(image_o)
+  const r = await loadImage(image_r)
+  return { of, o, r }
 }
 
 interface ImageList {
+  of: HTMLImageElement
   o: HTMLImageElement
-  ob: HTMLImageElement
   r: HTMLImageElement
 }
 
@@ -55,6 +55,9 @@ const generateImage = (canvas: HTMLCanvasElement, list: string[], imageList: Ima
   // Delete '-' at the end
   if (list[list.length - 1] === '-') {
     list.pop()
+  }
+  if (list[0] === 'o') {
+    list[0] = 'of'
   }
   // calculate canvas height
   let height = 0
