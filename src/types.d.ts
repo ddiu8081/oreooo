@@ -1,0 +1,1 @@
+type OreoKey = 'o' | 'r' | '-'
