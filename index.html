@@ -1,84 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-
-<head>
-    <meta charset="utf-8">
-    <title>OREOOO</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+<html>
+  <head>
+    <meta charset="UTF-8" />
     <link rel="shortcut icon" href="/favicon.ico"/>
-    <link rel="stylesheet" href="assets/css/oreo.css">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-21387397-4"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-21387397-4');
-    </script>
-
-</head>
-
-<body>
-    <div id="app" tabindex="-1" @keyup="keyEvent($event)">
-        <transition name="bounce">
-            <div class="content-loading" v-show="loading">
-                <img class="loading-img" src="assets/image/oreo.png" alt="">
-            </div>
-        </transition>
-        <div class="container" v-show="!loading && !output">
-            <div class="icon tooltip">
-                <span class="tooltiptext" v-html="$t('tooltip')"></span>
-            </div>
-            <div class="title">
-                <div class="meta" v-t="'input.meta'"></div>
-                <div v-show="oreoStr">
-                    <div class="input str" v-show="oreoStr">
-                        <span>{{oreoStr}}</span>
-                    </div>
-                </div>
-                <div v-show="!oreoStr">
-                    <div class="input str placeholder">
-                        <span v-t="'input.placeholder'"></span>
-                        <img class="icon" @click="getRandom()" src="assets/image/random.png" />
-                    </div>
-                </div>
-            </div>
-            <div class="control">
-                <div @click="strAdd('o')" class="btn small" v-t="'input.btn.o'"></div>
-                <div @click="strAdd('r')" class="btn small" v-t="'input.btn.r'"></div>
-                <div @click="strAdd('-')" class="btn small" v-t="'input.btn.and'"></div>
-                <div @click="strAdd('-1')" class="btn small">-1</div>
-            </div>
-            <div @click="generateImage" class="index-btn" v-t="'input.generate'"></div>
-        </div>
-        <div class="container" v-show="!loading && output">
-            <div class="title">
-                <div class="meta" v-t="'output.meta'"></div>
-                <div class="output str">{{oreoStr}}</div>
-            </div>
-            <div class="output-image">
-                <canvas width="240px" height="500px" ref="oreo_canvas" id="oreo_canvas"></canvas>
-            </div>
-            <div v-if="isIOS()" @click="showImage" class="btn" v-t="'output.show'"></div>
-            <div v-else @click="downloadImage" class="btn" v-t="'output.save'"></div>
-            <div @click="backToInput" class="btn" v-t="'output.back'"></div>
-        </div>
-        <footer class="footer" v-show="!loading && !output">
-            <ul class="lang">
-                <li @click="changeLang(value)" v-for="(value, key) in languages" :key="value">{{key}}</li>
-            </ul>
-            <div class="meta">
-                <a href="https://ljl.li">Diu</a>
-                <a href="https://github.com/ddiu8081/oreooo">Github</a>
-            </div>
-        </footer>
-    </div>
-    <script src="assets/js/vue.min.js"></script>
-    <script src="assets/js/vue-i18n.js"></script>
-    <script src="assets/js/oreo.js"></script>
-
-</body>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OREOOO</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
