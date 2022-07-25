@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { onKeyStroke } from '@vueuse/core'
 import { formattedOreoStr, generateRandomOreoKey } from '../utils'
 import Button from '../components/Button.vue'
 
@@ -10,6 +12,18 @@ const emit = defineEmits<{
 const { t } = useI18n()
 let oreoList = $ref<OreoKey[]>([])
 const oreoFormattedStr = $computed(() => formattedOreoStr(oreoList, t))
+
+onMounted(() => {
+  addKeyBindings()
+})
+
+const addKeyBindings = () => {
+  onKeyStroke('o', e => addSlice('o'))
+  onKeyStroke('r', e => addSlice('r'))
+  onKeyStroke(['-', ' '], e => addSlice('-'))
+  onKeyStroke('Backspace', e => addSlice('-1'))
+  onKeyStroke('Enter', handleClick)
+}
 
 const handleClick = () => {
   emit('submit', oreoList)
