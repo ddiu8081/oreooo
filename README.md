@@ -1,18 +1,12 @@
 # OREOOO!
 
-> Refactoring ([#13](https://github.com/ddiu8081/oreooo/issues/13))
-
 Is this your Oreooo?
-这是你的奥利奥利奥吗？
 
-![ScreenShot](assets/screenshot.png)
+![ScreenShot](screenshot.png)
 
-
-
-[Demo](https://ddiu8081.github.io/oreooo/)
+[Demo](https://oreo.ddiu.io/)
 
 [Blog](https://notes.ljl.li/oreooo/)
-
 
 
 ## Keyboard shortcuts
@@ -35,10 +29,3 @@ The text in Oreooo is in Chinese by default. You can translate it in your langua
 ## License
 
 MIT
-
-## Other Site
-
-[firedom/oreo-lang](https://github.com/firedom/oreo-lang)
-
-[syt123450/oreo-3d](https://github.com/syt123450/oreo-3d)
-
