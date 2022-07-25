@@ -20,7 +20,7 @@ const addSlice = (key: OreoKey | '-1') => {
       oreoList.push(key)
       break;
     case '-':
-      if (oreoList.length > 1 && oreoList[oreoList.length - 1] !== '-') {
+      if (oreoList.length > 0 && oreoList[oreoList.length - 1] !== '-') {
         oreoList.push('-')
       }
       break;

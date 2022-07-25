@@ -10,7 +10,13 @@ const emit = defineEmits<{
 const props = defineProps<{
   oreoList: OreoKey[]
 }>()
-const oreoFormattedStr = $computed(() => formattedOreoStr(props.oreoList))
+const oreoFormattedStr = $computed(() => {
+  const copyList = [...props.oreoList]
+  if (copyList.length > 0 && copyList[copyList.length - 1] === '-') {
+    copyList.pop()
+  }
+  return formattedOreoStr(copyList)
+})
 
 const handleClick = () => {
   console.log(props.oreoList)

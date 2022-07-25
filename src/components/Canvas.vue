@@ -51,17 +51,18 @@ interface DrawItem {
 
 const generateImage = (canvas: HTMLCanvasElement, list: string[], imageList: ImageList) => {
   console.log(imageList)
+  const copyList = [...list]
   const drawList: DrawItem[] = []
   // Delete '-' at the end
-  if (list[list.length - 1] === '-') {
-    list.pop()
+  if (copyList[copyList.length - 1] === '-') {
+    copyList.pop()
   }
-  if (list[0] === 'o') {
-    list[0] = 'of'
+  if (copyList[0] === 'o') {
+    copyList[0] = 'of'
   }
   // calculate canvas height
   let height = 0
-  list.forEach(item => {
+  copyList.forEach(item => {
     if (item === '-') {
       height += 72
     } else {
@@ -94,5 +95,5 @@ defineExpose({
 </script>
 
 <template>
-  <canvas width="240" height="600" ref="oreoCanvas"></canvas>
+  <canvas width="240" height="0" ref="oreoCanvas"></canvas>
 </template>
