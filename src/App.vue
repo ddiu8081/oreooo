@@ -16,10 +16,8 @@
 
   const handleSubmit = (newList: OreoKey[]) => {
     loading = true
-    console.log('loading', loading)
     setTimeout(() => {
       loading = false
-      console.log('loading', loading)
     }, 1000)
 
     oreoList = [...newList]
@@ -54,6 +52,15 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Seto", sans-serif;
+}
+
+a {
+  color: #594439;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #715c50;
 }
 
 @font-face {

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img class="spin" h-28 w-28 src="../assets/images/oreo.png" alt="loading" />
+    <img class="spin" h-32 w-32 src="../assets/images/oreo.png" alt="loading" />
   </div>
 </template>
 

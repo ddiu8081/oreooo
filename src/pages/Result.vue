@@ -21,7 +21,6 @@ const oreoFormattedStr = $computed(() => {
 })
 
 const handleClick = () => {
-  console.log(props.oreoList)
   emit('back')
 }
 

@@ -4,6 +4,7 @@ import { useI18n } from 'vue-i18n'
 import { onKeyStroke } from '@vueuse/core'
 import { formattedOreoStr, generateRandomOreoKey } from '../utils'
 import Button from '../components/Button.vue'
+import SiteFooter from '../components/SiteFooter.vue'
 
 const emit = defineEmits<{
   (e: 'submit', value: OreoKey[]): void
@@ -113,4 +114,5 @@ const generateRandomOreo = () => {
       {{ t('input.generate') }}
     </footer>
   </main>
+  <SiteFooter />
 </template>

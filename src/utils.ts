@@ -3,7 +3,6 @@ const getRandomInteger = (min: number, max: number) => {
 }
 
 export const formattedOreoStr = (keyList: OreoKey[], translation: (key: string, count?: number) => string) => {
-  console.log(keyList);
   if (!keyList.length) {
     return translation('input.placeholder')
   }

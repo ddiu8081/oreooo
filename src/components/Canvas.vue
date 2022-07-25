@@ -50,7 +50,6 @@ interface DrawItem {
 }
 
 const generateImage = (canvas: HTMLCanvasElement, list: string[], imageList: ImageList) => {
-  console.log(imageList)
   const copyList = [...list]
   const drawList: DrawItem[] = []
   // Delete '-' at the end
