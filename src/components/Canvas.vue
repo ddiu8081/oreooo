@@ -2,7 +2,7 @@
 import { onMounted } from 'vue';
 import image_of from '../assets/images/of.png'
 // import image_o from '../assets/images/o.png'
-// import image_r from '../assets/images/r.png'
+import image_r from '../assets/images/r.png'
 
 const props = defineProps<{ input: string[] }>()
 let oreoCanvas = $ref<HTMLCanvasElement | null>(null)
@@ -30,8 +30,8 @@ const loadImage = async (src: string): Promise<HTMLImageElement> => {
 
 const loadAllImages = async () => {
   const of = await loadImage(image_of)
-  const o = await loadImage(image_of)
-  const r = await loadImage(image_of)
+  const o = await loadImage(image_r)
+  const r = await loadImage(image_r)
   return { of, o, r }
 }
 
