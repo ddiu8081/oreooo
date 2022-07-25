@@ -6,10 +6,13 @@ import '@unocss/reset/eric-meyer.css'
 import App from './App.vue'
 import messages from './locales'
 
+const localeKeyList = ['en', 'zh', 'ja', 'de']
+const currentLocale = localeKeyList.find(key => navigator.language.startsWith(key)) || 'en'
+
 const i18n = createI18n({
   legacy: false,
-  locale: 'zh_cn',
-  fallbackLocale: 'zh_cn',
+  locale: currentLocale,
+  fallbackLocale: 'zh',
   messages,
 })
 

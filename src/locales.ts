@@ -21,7 +21,7 @@ const locales = {
           back: "Back"
       }
   },
-  zh_cn: {
+  zh: {
       basic: {
           o: "奥",
           r: "利",
@@ -65,7 +65,7 @@ const locales = {
           back: "元に戻す"
       }
   },
-  de_de: {
+  de: {
       basic: {
           o: "O | o",
           r: "Re | re",

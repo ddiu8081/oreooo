@@ -7,7 +7,7 @@ const emit = defineEmits<{
   (e: 'submit', value: OreoKey[]): void
 }>()
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 let oreoList = $ref<OreoKey[]>([])
 const oreoFormattedStr = $computed(() => formattedOreoStr(oreoList, t))
 
@@ -99,10 +99,4 @@ const generateRandomOreo = () => {
       {{ t('input.generate') }}
     </footer>
   </main>
-  <select v-model="locale" mt-3>
-    <option value="en">en</option>
-    <option value="zh_cn">zh</option>
-    <option value="ja">ja</option>
-    <option value="de_de">de</option>
-  </select>
 </template>
