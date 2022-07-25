@@ -1,8 +1,8 @@
 <script setup lang="ts">
+  import { onMounted } from 'vue';
   import Home from './pages/Home.vue'
   import Result from './pages/Result.vue'
   import Loading from './components/Loading.vue'
-import { onMounted } from 'vue';
 
   let oreoList = $ref<OreoKey[]>([])
   let loading = $ref(true)

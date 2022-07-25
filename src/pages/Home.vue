@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { formattedOreoStr, generateRandomOreoKey } from '../utils'
 import Button from '../components/Button.vue'
 
@@ -6,8 +7,9 @@ const emit = defineEmits<{
   (e: 'submit', value: OreoKey[]): void
 }>()
 
+const { t, locale } = useI18n()
 let oreoList = $ref<OreoKey[]>([])
-const oreoFormattedStr = $computed(() => formattedOreoStr(oreoList))
+const oreoFormattedStr = $computed(() => formattedOreoStr(oreoList, t))
 
 const handleClick = () => {
   emit('submit', oreoList)
@@ -45,7 +47,7 @@ const generateRandomOreo = () => {
 <template>
   <main flex="~ col" bg-white w-full max-w-96 p-8 rounded-xl shadow="md black/5">
     <header>
-      <h1 text="center 2xl" font-bold>我想要：</h1>
+      <h1 text="center 2xl" font-bold>{{ t('input.meta') }}</h1>
     </header>
     <main py-4>
       <div
@@ -79,9 +81,9 @@ const generateRandomOreo = () => {
         </div>
       </div>
       <div flex py-6 justify-center gap-4>
-        <Button @click="addSlice('o')">O</Button>
-        <Button @click="addSlice('r')">Re</Button>
-        <Button @click="addSlice('-')">And</Button>
+        <Button @click="addSlice('o')">{{ t('input.btn.o') }}</Button>
+        <Button @click="addSlice('r')">{{ t('input.btn.r') }}</Button>
+        <Button @click="addSlice('-')">{{ t('input.btn.and') }}</Button>
         <Button @click="addSlice('-1')">-1</Button>
       </div>
     </main>
@@ -94,7 +96,13 @@ const generateRandomOreo = () => {
       hover="bg-truegray-800 text-2xl" rounded-b-xl
       @click="handleClick"
     >
-      生成
+      {{ t('input.generate') }}
     </footer>
   </main>
+  <select v-model="locale" mt-3>
+    <option value="en">en</option>
+    <option value="zh_cn">zh</option>
+    <option value="ja">ja</option>
+    <option value="de_de">de</option>
+  </select>
 </template>

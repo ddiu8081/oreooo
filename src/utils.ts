@@ -2,17 +2,17 @@ const getRandomInteger = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-export const formattedOreoStr = (keyList: OreoKey[]) => {
+export const formattedOreoStr = (keyList: OreoKey[], translation: (key: string, count?: number) => string) => {
   console.log(keyList);
   if (!keyList.length) {
-    return 'Oreo...'
+    return translation('input.placeholder')
   }
-  const dict = {
-    o: '奥',
-    r: '利',
-    '-': '与',
+  const keyDict = {
+    o: 'basic.o',
+    r: 'basic.r',
+    '-': 'basic.and',
   }
-  return keyList.map(item => dict[item]).join('')
+  return keyList.map((item, index) => translation(keyDict[item], index + 1)).join('')
 }
 
 export const generateRandomOreoKey = () => {
