@@ -66,6 +66,7 @@ const generateImage = (canvas: HTMLCanvasElement, list: string[], imageList: Ima
       height += 72
     } else {
       const drawItem = {
+        // @ts-ignore
         image: imageList[item],
         x: item === 'r' ? 10 : 0,
         y: height,
