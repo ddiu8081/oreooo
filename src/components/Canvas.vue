@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import image_of from '../assets/images/of.png'
-import image_o from '../assets/images/o.png'
-import image_r from '../assets/images/r.png'
+import image_of from '../assets/images/img_of.png'
+import image_o from '../assets/images/img_o.png'
+import image_r from '../assets/images/img_r.png'
 
 const props = defineProps<{ input: string[] }>()
 let oreoCanvas = $ref<HTMLCanvasElement | null>(null)
