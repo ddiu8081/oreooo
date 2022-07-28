@@ -15,12 +15,14 @@
   })
 
   const handleSubmit = (newList: OreoKey[]) => {
-    loading = true
-    setTimeout(() => {
-      loading = false
-    }, 1000)
+    if(newList.length) {
+        loading = true
+        setTimeout(() => {
+        loading = false
+        }, 1000)
 
-    oreoList = [...newList]
+        oreoList = [...newList]
+    }
   }
 </script>
 

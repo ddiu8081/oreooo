@@ -107,8 +107,9 @@ const generateRandomOreo = () => {
       h-16 mx="-8" mb="-8"
       text="white xl"
       bg-truegray-700
-      cursor-pointer
-      hover="bg-truegray-800 text-2xl" rounded-b-xl
+      :cursor="oreoList.length ? 'pointer' : 'not-allowed'"
+      :hover="oreoList.length ? 'bg-truegray-800 text-2xl' : ''" 
+      rounded-b-xl select-none
       @click="handleClick"
     >
       {{ t('input.generate') }}
