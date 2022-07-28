@@ -95,7 +95,7 @@ const generateRandomOreo = () => {
           <div i-gg-close />
         </div>
       </div>
-      <div flex py-6 justify-center gap-4>
+      <div flex py-6 justify-center gap-4 select-none>
         <Button @click="addSlice('o')">{{ t('input.btn.o') }}</Button>
         <Button @click="addSlice('r')">{{ t('input.btn.r') }}</Button>
         <Button @click="addSlice('-')">{{ t('input.btn.and') }}</Button>
