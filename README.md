@@ -20,7 +20,7 @@ Is this your Oreooo?
 
 ## Contributing a translation
 
-The text in Oreooo is in Chinese by default. You can translate it in your language. Just edit your language pack in `assets/js/oreo.js` and  `pull requests` to me. Thanks!
+The text in Oreooo is in Chinese by default. You can translate it in your language. Just edit your language pack in `src/locales.ts` and  `pull requests` to me. Thanks!
 
 > 对中文用户：在中文版本中可能会使用繁体字形，这是由于我们使用的[濑户字体](https://www.hellofont.cn/font-detail?fontid=2646)只有繁体版本。
 > 
