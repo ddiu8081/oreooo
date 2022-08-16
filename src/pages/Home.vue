@@ -73,7 +73,7 @@ const generateRandomOreo = () => {
         border="~ truegray-200"
         :class="[oreoList.length ? 'text-truegray-700' : 'text-truegray-300']"
       >
-        <div flex-1 text-center>{{ oreoFormattedStr }}</div>
+        <div flex-1 text-center overflow-auto break-words>{{ oreoFormattedStr }}</div>
         <div
           v-show="!oreoList.length"
           p-2 rounded-md
