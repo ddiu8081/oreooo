@@ -32,7 +32,7 @@ const handleClick = () => {
       <h1 text="center 2xl" font-bold>{{ t('output.meta') }}</h1>
     </header>
     <main text-center py-4>
-      <div text-3xl mb-6 overflow-auto break-words>{{ oreoFormattedStr }}</div>
+      <div text-3xl mb-6 overflow-auto break-all>{{ oreoFormattedStr }}</div>
       <Canvas :input="props.oreoList" />
     </main>
     <div flex justify-center gap-4 mt-4>
