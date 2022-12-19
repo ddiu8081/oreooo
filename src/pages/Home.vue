@@ -27,10 +27,12 @@ const addKeyBindings = () => {
 }
 
 const handleClick = () => {
+  umami.trackEvent('submit_ck', { list: oreoList.join(''), length: oreoList.length })
   emit('submit', oreoList)
 }
 
 const addSlice = (key: OreoKey | '-1') => {
+  umami.trackEvent('input_slice_add_ck', { key })
   switch (key) {
     case 'o':
     case 'r':
@@ -80,6 +82,7 @@ const generateRandomOreo = () => {
           cursor-pointer
           text="truegray-400 xl"
           hover="text-truegray-600 bg-truegray-100"
+          class="umami--click--input_random_ck"
           @click="generateRandomOreo"
         >
           <div i-gg-dice-3 />
@@ -90,6 +93,7 @@ const generateRandomOreo = () => {
           cursor-pointer
           text="truegray-400 xl"
           hover="text-truegray-600 bg-truegray-100"
+          class="umami--click--input_clear_ck"
           @click="oreoList = []"
         >
           <div i-gg-close />
