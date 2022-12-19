@@ -32,7 +32,6 @@ const handleClick = () => {
 }
 
 const addSlice = (key: OreoKey | '-1') => {
-  umami.trackEvent('input_slice_add_ck', { key })
   switch (key) {
     case 'o':
     case 'r':
