@@ -27,7 +27,6 @@ const addKeyBindings = () => {
 }
 
 const handleClick = () => {
-  umami.trackEvent('submit_ck', { list: oreoList.join(''), length: oreoList.length })
   emit('submit', oreoList)
 }
 
