@@ -1124,7 +1124,7 @@ packages:
       destr: 1.2.2
       node-fetch-native: 0.1.8
       ufo: 0.8.6
-      undici: 5.26.3
+      undici: 5.28.3
     dev: true
 
   /onetime@5.1.2:
@@ -1306,8 +1306,8 @@ packages:
       jiti: 1.16.0
     dev: true
 
-  /undici@5.26.3:
-    resolution: {integrity: sha512-H7n2zmKEWgOllKkIUkLvFmsJQj062lSm3uA4EYApG8gLuiOM0/go9bIoC3HVaSnfg4xunowDE2i9p8drkXuvDw==}
+  /undici@5.28.3:
+    resolution: {integrity: sha512-3ItfzbrhDlINjaP0duwnNsKpDQk3acHI3gVJ1z4fmwMK31k5G9OVIAMLSIaP6w4FaGkaAkN6zaQO9LUvZ1t7VA==}
     engines: {node: '>=14.0'}
     dependencies:
       '@fastify/busboy': 2.0.0
